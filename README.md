@@ -1,11 +1,11 @@
 # chronopay-frontend
 
-Next.js dashboard and Stellar wallet integration for **ChronoPay** — time tokenization and scheduling on the Stellar network.
+Next.js dashboard and Stellar wallet integration for **ChronoPay** - time tokenization and scheduling on the Stellar network.
 
 ## What's in this repo
 
 - **Next.js 16** (App Router) with TypeScript and Tailwind CSS
-- ChronoPay landing and dashboard starter pages
+- ChronoPay landing, dashboard, and booking flow starter pages
 - Ready for Stellar wallet connection and time token UI
 
 ## Prerequisites
@@ -37,19 +37,27 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Scripts
 
-| Script        | Description              |
-|---------------|--------------------------|
+| Script | Description |
+|--------|-------------|
 | `npm run dev` | Start dev server (Turbopack) |
-| `npm run build` | Production build       |
+| `npm run build` | Production build |
 | `npm run start` | Start production server |
-| `npm run lint`  | Run ESLint              |
-| `npm test`      | Lint + build (CI)       |
+| `npm run lint` | Run ESLint |
+| `npm test` | Lint + build (CI) |
 
 ## Project layout
 
-- `src/app/` — App Router pages (e.g. `page.tsx`, `dashboard/page.tsx`)
-- `src/app/layout.tsx` — Root layout and metadata
-- `public/` — Static assets
+- `src/app/` - App Router pages such as `page.tsx`, `dashboard/page.tsx`, and `booking/page.tsx`
+- `src/components/booking/` - Reusable booking flow UI building blocks
+- `src/app/layout.tsx` - Root layout and metadata
+- `public/` - Static assets
+
+## Booking flow design notes
+
+- The booking flow is split into small components so selection, confirmation, success, and state handling are easy to review independently.
+- The route keeps slot, wallet, and confirmation details visible together to reduce uncertainty before escrow is confirmed.
+- Loading, empty, and error states are rendered as first-class UI states to keep the layout stable while backend data changes.
+- Focus rings, semantic headings, and clear button labels are included to support keyboard and screen-reader use.
 
 ## Contributing
 
